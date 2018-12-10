@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.5748171, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -355,6 +355,7 @@ GameObject:
   - component: {fileID: 1071435084}
   - component: {fileID: 1071435083}
   - component: {fileID: 1071435082}
+  - component: {fileID: 1071435087}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -444,6 +445,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: -18.442001, z: 0}
+--- !u!114 &1071435087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1071435081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0edbdc4c1da19a46af37dec425b3f94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveAmount: 0.5
+  rb: {fileID: 1071435082}
+  forceAmount: 0
+  jumpAmount: 0
+  MaxJumps: 2
 --- !u!1 &2040822845
 GameObject:
   m_ObjectHideFlags: 0
@@ -456,6 +473,7 @@ GameObject:
   - component: {fileID: 2040822848}
   - component: {fileID: 2040822847}
   - component: {fileID: 2040822846}
+  - component: {fileID: 2040822851}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -538,10 +556,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2040822845}
-  m_LocalRotation: {x: 0, y: 0.16024299, z: 0, w: 0.98707765}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6.43, y: 2.55, z: -11.33}
   m_LocalScale: {x: 2.6912, y: 3.2695, z: 0.46127}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 18.442, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2040822851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2040822845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 313f3247227c30e488b3e95daae27f0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveAmount: 0.5
+  rb: {fileID: 2040822846}
+  forceAmount: 0
+  jumpAmount: 0
