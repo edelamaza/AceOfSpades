@@ -4,71 +4,33 @@ using UnityEngine;
 
 public class Player2 : MonoBehaviour
 {
-
-    public float moveAmount = 0.5f;
     public Rigidbody rb;
-    public float forceAmount = 20.0f;
-    public float jumpAmount = 10.0f;
-
-    // Use this for initialization
+    public float forceAmount;
+    public float jumpAmount;
+    public int MaxJumps;
+    int jumpCount = 0;
     void Start()
     {
+        jumpCount = 0;
 
     }
-
-    // Update is called once per frame
     void Update()
     {
-
-        //transformMove();
-        //RigidbodyMove(); 
         RigidBodyForce();
+        if (jumpCount < MaxJumps)
+        {
+            Jump();
+        }
 
     }
-
-
-    void transformMove()
-    {
-        if (Input.GetKey(KeyCode.L))
-        {
-            transform.position = transform.position + new Vector3(moveAmount, 0, 0);
-        }
-
-        if (Input.GetKey(KeyCode.J))
-        {
-            transform.position = transform.position - new Vector3(moveAmount, 0, 0);
-        }
-
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            transform.position = transform.position + new Vector3(0, moveAmount, 0);
-        }
-
-        /*if (Input.GetKey(KeyCode.DownArrow))
-        {
-            transform.position = transform.position - new Vector3(0, moveAmount, 0);
-        }
-        */
-        /*if (Input.GetKey(KeyCode.U))
-        {
-            transform.position = new Vector3(0, 1, 0);
-        }
-        */
-    }
-
-
     void RigidBodyForce()
     {
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            //rb.AddForce(new Vector3(0, jumpAmount, 0), ForceMode.VelocityChange);
-            rb.velocity = new Vector3(rb.velocity.x, jumpAmount, rb.velocity.z);
-        }
+      
         if (Input.GetKey(KeyCode.L))
         {
             rb.AddForce(new Vector3(forceAmount, 0, 0));
             transform.rotation = Quaternion.AngleAxis(18, Vector3.down);
-         
+
         }
 
         if (Input.GetKey(KeyCode.J))
@@ -77,21 +39,21 @@ public class Player2 : MonoBehaviour
             transform.rotation = Quaternion.AngleAxis(18, Vector3.up);
         }
     }
-
-    void RigidbodyMove()
+    void Jump()
     {
-
-
-        if (Input.GetKey(KeyCode.L))
+        if (Input.GetKeyDown(KeyCode.I))
         {
-            rb.MovePosition(transform.position + new Vector3(moveAmount, 0, 0));
-        }
+            rb.velocity = new Vector3(rb.velocity.x, jumpAmount, rb.velocity.z);
+            jumpCount += 1;
 
-        if (Input.GetKey(KeyCode.J))
+        }
+    }
+    void OnCollisionEnter(Collision col)
+    {
+        if (col.gameObject.name == "Plane")
         {
-            rb.MovePosition(transform.position - new Vector3(moveAmount, 0, 0));
+            jumpCount = 0;
         }
-
     }
 
 }

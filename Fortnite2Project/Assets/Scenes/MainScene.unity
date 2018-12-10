@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.5748171, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -456,10 +456,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0edbdc4c1da19a46af37dec425b3f94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveAmount: 0.5
   rb: {fileID: 1071435082}
-  forceAmount: 0
-  jumpAmount: 0
+  forceAmount: 20
+  jumpAmount: 10
   MaxJumps: 2
 --- !u!1 &2040822845
 GameObject:
@@ -574,7 +573,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 313f3247227c30e488b3e95daae27f0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveAmount: 0.5
   rb: {fileID: 2040822846}
-  forceAmount: 0
-  jumpAmount: 0
+  forceAmount: 20
+  jumpAmount: 10
+  MaxJumps: 2
