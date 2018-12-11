@@ -9,11 +9,17 @@ public class Player1 : MonoBehaviour
     public float jumpAmount;
     public int MaxJumps;
     int jumpCount = 0;
+    public float dashAmount;
+    public float dashCoolDown;
+    private float timeLastDash;
+
 
     // Use this for initialization
     void Start()
     {
         jumpCount = 0;
+        timeLastDash = -1000000;
+
 
     }
 
@@ -25,6 +31,7 @@ public class Player1 : MonoBehaviour
         {
             Jump();
         }
+        dash();
     }
 
     void RigidBodyForce()
@@ -52,9 +59,30 @@ public class Player1 : MonoBehaviour
     }
     void OnCollisionEnter(Collision col)
     {
-        if (col.gameObject.name == "Plane")
+        if (col.gameObject.name == "Floor" || col.gameObject.name == "Platform1 Right" || col.gameObject.name == "Platform1 Left" || col.gameObject.name == "Platform2")
         {
             jumpCount = 0;
+        }
+    }
+    void dash()
+    {
+
+        if (Time.time - timeLastDash > dashCoolDown)
+        {
+            if (Input.GetKeyDown(KeyCode.T))
+            {
+                rb.AddForce(new Vector3(dashAmount, 0, 0));
+                transform.rotation = Quaternion.AngleAxis(18, Vector3.down);
+                timeLastDash = Time.time;
+
+            }
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                rb.AddForce(new Vector3(-dashAmount, 0, 0));
+                transform.rotation = Quaternion.AngleAxis(18, Vector3.down);
+                timeLastDash = Time.time;
+
+            }
         }
     }
 }

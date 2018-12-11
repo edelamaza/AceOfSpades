@@ -9,9 +9,14 @@ public class Player2 : MonoBehaviour
     public float jumpAmount;
     public int MaxJumps;
     int jumpCount = 0;
+    public float dashAmount;
+    public float dashCoolDown;
+
+    private float timeLastDash;
     void Start()
     {
         jumpCount = 0;
+        timeLastDash = -1000000;
 
     }
     void Update()
@@ -21,11 +26,12 @@ public class Player2 : MonoBehaviour
         {
             Jump();
         }
+        dash();
 
     }
     void RigidBodyForce()
     {
-      
+
         if (Input.GetKey(KeyCode.L))
         {
             rb.AddForce(new Vector3(forceAmount, 0, 0));
@@ -38,6 +44,7 @@ public class Player2 : MonoBehaviour
             rb.AddForce(new Vector3(-forceAmount, 0, 0));
             transform.rotation = Quaternion.AngleAxis(18, Vector3.up);
         }
+
     }
     void Jump()
     {
@@ -50,9 +57,30 @@ public class Player2 : MonoBehaviour
     }
     void OnCollisionEnter(Collision col)
     {
-        if (col.gameObject.name == "Plane")
+        if (col.gameObject.name == "Floor" || col.gameObject.name == "Platform1 Right" || col.gameObject.name == "Platform1 Left" || col.gameObject.name == "Platform2")
         {
             jumpCount = 0;
+        }
+    }
+    void dash()
+    {
+
+        if (Time.time - timeLastDash > dashCoolDown)
+        {
+            if (Input.GetKeyDown(KeyCode.U))
+            {
+                rb.AddForce(new Vector3(dashAmount, 0, 0));
+                transform.rotation = Quaternion.AngleAxis(18, Vector3.down);
+                timeLastDash = Time.time;
+
+            }
+            if (Input.GetKeyDown(KeyCode.Y))
+            {
+                rb.AddForce(new Vector3(-dashAmount, 0, 0));
+                transform.rotation = Quaternion.AngleAxis(18, Vector3.down);
+                timeLastDash = Time.time;
+
+            }
         }
     }
 
