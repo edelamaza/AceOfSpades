@@ -59,7 +59,7 @@ public class Player1 : MonoBehaviour
     }
     void OnCollisionEnter(Collision col)
     {
-        if (col.gameObject.name == "Floor" || col.gameObject.name == "Platform1 Right" || col.gameObject.name == "Platform1 Left" || col.gameObject.name == "Platform2")
+        if (col.gameObject.name == "Floor" || col.gameObject.name == "Platform1 Left"  || col.gameObject.name == "Platform1 Right" || col.gameObject.name == "Platform1 Left" || col.gameObject.name == "Platform2")
         {
             jumpCount = 0;
         }
