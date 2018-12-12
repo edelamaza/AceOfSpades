@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Player2Melee : MonoBehaviour
 {
-    public float i;
     public float attackCoolDown;
     private float timeLastAttack;
 
@@ -13,7 +12,6 @@ public class Player2Melee : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        i = 0;
         timeLastAttack = -100000;
 
     }

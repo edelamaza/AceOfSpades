@@ -4,10 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Player1Health : MonoBehaviour {
+    public GameObject player1;
 
     [Header("Object References")]
     public Image HealthBar;
-
     [Header("Health Stats")]
     public float maxHealth;
     public float damagePerHit;
@@ -27,6 +27,10 @@ public class Player1Health : MonoBehaviour {
         {
             currentHealth = 0;
             Debug.Log("Oh no. I died. You have killed me.");
+        }
+        if (currentHealth == 0)
+        {
+            Destroy(player1);
         }
 
         //update health bar UI
