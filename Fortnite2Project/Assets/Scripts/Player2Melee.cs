@@ -7,6 +7,9 @@ public class Player2Melee : MonoBehaviour
     public float i;
     public float attackCoolDown;
     private float timeLastAttack;
+
+    public Player1Health p1H;
+
     // Use this for initialization
     void Start()
     {
@@ -18,7 +21,7 @@ public class Player2Melee : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(i);
+       // Debug.Log(i);
     }
     private void OnTriggerEnter(Collider col)
     {
@@ -28,8 +31,7 @@ public class Player2Melee : MonoBehaviour
             {
 
                 timeLastAttack = Time.time;
-                i++;
-
+                p1H.Hurt();
             }
         }
     }

@@ -40,13 +40,13 @@ public class Player1 : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
         {
             rb.AddForce(new Vector3(forceAmount, 0, 0));
-            transform.rotation = Quaternion.AngleAxis(18, Vector3.down);
+           // transform.rotation = Quaternion.AngleAxis(18, Vector3.down);
         }
 
         if (Input.GetKey(KeyCode.A))
         {
             rb.AddForce(new Vector3(-forceAmount, 0, 0));
-            transform.rotation = Quaternion.AngleAxis(18, Vector3.up);
+           // transform.rotation = Quaternion.AngleAxis(18, Vector3.up);
         }
     }
     void Jump()
@@ -59,7 +59,7 @@ public class Player1 : MonoBehaviour
     }
     void OnCollisionEnter(Collision col)
     {
-        if (col.gameObject.name == "Floor" || col.gameObject.name == "Platform1 Left"  || col.gameObject.name == "Platform1 Right" || col.gameObject.name == "Platform1 Left" || col.gameObject.name == "Platform2")
+        if (col.gameObject.name == "Floor" || col.gameObject.name == "Platform1 Left"  || col.gameObject.name == "Platform1 Right" || col.gameObject.name == "Platform1 Left" || col.gameObject.name == "Platform2" || col.gameObject.name == "PlatformTopRight" || col.gameObject.name == "PlatformTopLeft" || col.gameObject.name == "PlatformTopTop")
         {
             jumpCount = 0;
         }
@@ -72,14 +72,21 @@ public class Player1 : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.T))
             {
                 rb.AddForce(new Vector3(dashAmount, 0, 0));
-                transform.rotation = Quaternion.AngleAxis(18, Vector3.down);
+                //transform.rotation = Quaternion.AngleAxis(18, Vector3.down);
                 timeLastDash = Time.time;
 
             }
             if (Input.GetKeyDown(KeyCode.R))
             {
                 rb.AddForce(new Vector3(-dashAmount, 0, 0));
-                transform.rotation = Quaternion.AngleAxis(18, Vector3.down);
+               // transform.rotation = Quaternion.AngleAxis(18, Vector3.down);
+                timeLastDash = Time.time;
+
+            }
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                rb.AddForce(new Vector3(0,-dashAmount, 0));
+                //transform.rotation = Quaternion.AngleAxis(18, Vector3.down);
                 timeLastDash = Time.time;
 
             }
