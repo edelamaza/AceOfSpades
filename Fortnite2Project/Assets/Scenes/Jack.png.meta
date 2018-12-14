@@ -90,10 +90,10 @@ TextureImporter:
       name: Jack 1
       rect:
         serializedVersion: 2
-        x: 1
-        y: 273
-        width: 288
-        height: 292
+        x: 3
+        y: 271
+        width: 285
+        height: 294
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,8 +112,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 288
-        height: 261
+        width: 294
+        height: 271
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,9 +131,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 287
-        y: 274
-        width: 288
-        height: 291
+        y: 272
+        width: 289
+        height: 293
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
